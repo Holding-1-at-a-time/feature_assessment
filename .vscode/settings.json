@@ -3,5 +3,9 @@
         "Cloudinary",
         "quicktime",
         "webm"
-    ]
+    ],
+    "sonarlint.connectedMode.project": {
+        "connectionId": "feature_assessment",
+        "projectKey": "Holding-1-at-a-time_feature_assessment"
+    }
 }
