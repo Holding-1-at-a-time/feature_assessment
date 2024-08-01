@@ -4,7 +4,7 @@ import { api } from '../convex/_generated/api';
 import VehicleDetailsForm from '../components/VehicleDetailsForm';
 import ServiceSelection from '../components/ServiceSelection';
 import CustomizationOptions from '../components/CustomizationOptions';
-import RealTimeSummary from '../components/RealTimeSummary';
+import RealTimeSummary from '@/components/assessment/RealTimeSummary';
 import { GetServerSideProps } from 'next';
 import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
@@ -12,6 +12,7 @@ import { useState } from 'react';
 import SaveEstimate from '../components/SaveEstimate';
 import AIEstimation from '../components/AIEstimation';
 import { getServiceList, getVehicleFactors, getCustomizationOptions } from '../convex/functions';
+import { getCustomizationOptions, getServiceList } from '../../../convex/functions';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const services = await getServiceList();
