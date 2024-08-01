@@ -14,6 +14,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as analytics from "../analytics.js";
 import type * as appointments from "../appointments.js";
 import type * as assessmentQuestions from "../assessmentQuestions.js";
 import type * as bookings from "../bookings.js";
@@ -28,6 +29,10 @@ import type * as logging from "../logging.js";
 import type * as organizationContext from "../organizationContext.js";
 import type * as parts from "../parts.js";
 import type * as payment from "../payment.js";
+import type * as pdfGenerator from "../pdfGenerator.js";
+import type * as pdfReports from "../pdfReports.js";
+import type * as reportGenerators from "../reportGenerators.js";
+import type * as scheduledTasks from "../scheduledTasks.js";
 import type * as scheduleReminders from "../scheduleReminders.js";
 import type * as services from "../services.js";
 import type * as stripe from "../stripe.js";
@@ -42,6 +47,7 @@ import type * as userEngagement from "../userEngagement.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  analytics: typeof analytics;
   appointments: typeof appointments;
   assessmentQuestions: typeof assessmentQuestions;
   bookings: typeof bookings;
@@ -56,6 +62,10 @@ declare const fullApi: ApiFromModules<{
   organizationContext: typeof organizationContext;
   parts: typeof parts;
   payment: typeof payment;
+  pdfGenerator: typeof pdfGenerator;
+  pdfReports: typeof pdfReports;
+  reportGenerators: typeof reportGenerators;
+  scheduledTasks: typeof scheduledTasks;
   scheduleReminders: typeof scheduleReminders;
   services: typeof services;
   stripe: typeof stripe;
