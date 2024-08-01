@@ -14,6 +14,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as appointments from "../appointments.js";
 import type * as assessmentQuestions from "../assessmentQuestions.js";
 import type * as calculateDeposit from "../calculateDeposit.js";
 import type * as createBooking from "../createBooking.js";
@@ -39,6 +40,7 @@ import type * as userEngagement from "../userEngagement.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  appointments: typeof appointments;
   assessmentQuestions: typeof assessmentQuestions;
   calculateDeposit: typeof calculateDeposit;
   createBooking: typeof createBooking;
