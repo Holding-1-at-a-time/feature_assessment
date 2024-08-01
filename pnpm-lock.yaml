@@ -23,6 +23,9 @@ importers:
       convex:
         specifier: ^1.13.2
         version: 1.13.2(eslint@8.57.0)(react-dom@19.0.0-rc-a7d1240c-20240731(react@19.0.0-rc-a7d1240c-20240731))(react@19.0.0-rc-a7d1240c-20240731)
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       lru-cache:
         specifier: ^11.0.0
         version: 11.0.0
@@ -32,6 +35,9 @@ importers:
       react:
         specifier: 19.0.0-rc-a7d1240c-20240731
         version: 19.0.0-rc-a7d1240c-20240731
+      react-day-picker:
+        specifier: 8.10.1
+        version: 8.10.1(date-fns@3.6.0)(react@19.0.0-rc-a7d1240c-20240731)
       react-dom:
         specifier: 19.0.0-rc-a7d1240c-20240731
         version: 19.0.0-rc-a7d1240c-20240731(react@19.0.0-rc-a7d1240c-20240731)
@@ -903,6 +909,9 @@ packages:
     resolution: {integrity: sha512-t/Ygsytq+R995EJ5PZlD4Cu56sWa8InXySaViRzw9apusqsOO2bQP+SbYzAhR0pFKoB+43lYy8rWban9JSuXnA==}
     engines: {node: '>= 0.4'}
 
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -1732,6 +1741,12 @@ packages:
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  react-day-picker@8.10.1:
+    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
+    peerDependencies:
+      date-fns: ^2.28.0 || ^3.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   react-dom@19.0.0-rc-a7d1240c-20240731:
     resolution: {integrity: sha512-NNXK26qZhw2DE0wWdphAV/zdQW8olRVGr4q/aFn4+BjSsj2qevdB6rUdrJRczUn8w119Jg/+9Z3EfRFfjSOg0w==}
@@ -2829,6 +2844,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.1
 
+  date-fns@3.6.0: {}
+
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
@@ -3830,6 +3847,11 @@ snapshots:
   punycode@2.3.1: {}
 
   queue-microtask@1.2.3: {}
+
+  react-day-picker@8.10.1(date-fns@3.6.0)(react@19.0.0-rc-a7d1240c-20240731):
+    dependencies:
+      date-fns: 3.6.0
+      react: 19.0.0-rc-a7d1240c-20240731
 
   react-dom@19.0.0-rc-a7d1240c-20240731(react@19.0.0-rc-a7d1240c-20240731):
     dependencies:
