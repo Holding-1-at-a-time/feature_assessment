@@ -3,6 +3,7 @@ import { api } from '../../convex/_generated/api';
 
 const RealTimeSummary = ({ assessmentId }) => {
   const assessmentSummary = useQuery(api.assessments.getAssessmentSummary, { assessmentId });
+  if (!estimate) return <div>Loading...</div>;
 
   if (!assessmentSummary) {
     return <div>Loading...</div>;
