@@ -17,7 +17,7 @@ const FileUploadsComponent = () => {
   const handleFileUpload = async (event) => {
     try {
       const files = Array.from(event.target.files);
-      const validFiles = files.filter(file => 
+      const validFiles = files.filter(file =>
         ALLOWED_IMAGE_TYPES.includes(file.type) || ALLOWED_VIDEO_TYPES.includes(file.type)
       );
 
