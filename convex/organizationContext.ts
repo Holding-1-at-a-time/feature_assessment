@@ -13,7 +13,7 @@ export const getOrganizationPricing = query({
 export const updateOrganizationPricing = mutation({
   args: {
     pricingPolicy: v.object({
-      organizationId: v.string(),
+      organizationId: v.id("organization"),
       price: v.number(),
     }),
   },

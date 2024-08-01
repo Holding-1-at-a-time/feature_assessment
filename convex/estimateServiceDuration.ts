@@ -3,7 +3,7 @@ import { v } from "convex/values";
 
 export const estimateServiceDuration = query({
   args: {
-    services: v.array(v.string()),
+    servicesId: v.array(v.id("services")),
   },
   handler: async (ctx, args) => {
     const { services } = args;

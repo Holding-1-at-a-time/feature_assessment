@@ -1,6 +1,6 @@
 export const logUserEngagement = mutation({
   args: {
-    userId: v.string(),
+    userId: v.Id("users"),
     action: v.string(),
     timestamp: v.number(),
   },
@@ -11,8 +11,8 @@ export const logUserEngagement = mutation({
 
 export const logEstimateConversion = mutation({
   args: {
-    estimateId: v.string(),
-    userId: v.string(),
+    estimateId: v.id("estimates"),
+    userId: v.id("users"),
     timestamp: v.number(),
   },
   handler: async (ctx, args) => {

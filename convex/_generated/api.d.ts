@@ -14,8 +14,20 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as assessmentQuestions from "../assessmentQuestions.js";
+import type * as calculateDeposit from "../calculateDeposit.js";
+import type * as createBooking from "../createBooking.js";
+import type * as estimateServiceDuration from "../estimateServiceDuration.js";
 import type * as functions from "../functions.js";
+import type * as getAvailableSlots from "../getAvailableSlots.js";
+import type * as getCustomizationOptions from "../getCustomizationOptions.js";
+import type * as getPolicyDetails from "../getPolicyDetails.js";
 import type * as logging from "../logging.js";
+import type * as organizationContext from "../organizationContext.js";
+import type * as parts from "../parts.js";
+import type * as payment from "../payment.js";
+import type * as scheduleReminders from "../scheduleReminders.js";
+import type * as stripe from "../stripe.js";
 import type * as userEngagement from "../userEngagement.js";
 
 /**
@@ -27,8 +39,20 @@ import type * as userEngagement from "../userEngagement.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  assessmentQuestions: typeof assessmentQuestions;
+  calculateDeposit: typeof calculateDeposit;
+  createBooking: typeof createBooking;
+  estimateServiceDuration: typeof estimateServiceDuration;
   functions: typeof functions;
+  getAvailableSlots: typeof getAvailableSlots;
+  getCustomizationOptions: typeof getCustomizationOptions;
+  getPolicyDetails: typeof getPolicyDetails;
   logging: typeof logging;
+  organizationContext: typeof organizationContext;
+  parts: typeof parts;
+  payment: typeof payment;
+  scheduleReminders: typeof scheduleReminders;
+  stripe: typeof stripe;
   userEngagement: typeof userEngagement;
 }>;
 export declare const api: FilterApi<

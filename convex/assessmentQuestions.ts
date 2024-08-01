@@ -14,3 +14,14 @@ export const getQuestions = query({
     return questions;
   },
 });
+
+export const getAssessmentSummary = query({
+  args: {
+    assessmentId: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const { assessmentId } = args;
+    const summary = await ctx.db.get(assessmentId);
+    return summary;
+  },
+});

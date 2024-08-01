@@ -3,7 +3,7 @@ import { sendReminderEmail } from '../utils/sendGrid';
 
 export const scheduleReminders = mutation({
   args: {
-    bookingId: v.string(),
+    bookingId: v.id("bookings"),
     reminderTimes: v.array(v.string()),
   },
   handler: async (ctx, args) => {
