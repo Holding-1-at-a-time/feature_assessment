@@ -1,5 +1,8 @@
+
+import { useQuery } from 'react-query';
+import { getCustomizationOptions } from '../convex/functions';
 const CustomizationOptions = ({ options, onChange }) => {
-  const handleOptionChange = (optionId, selected) => {
+const handleOptionChange = (optionId, selected) => {
     onChange((prev) => {
       if (selected) {
         return [...prev, optionId];
