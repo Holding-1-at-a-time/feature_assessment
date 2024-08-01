@@ -1,6 +1,5 @@
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import Stripe from 'stripe';
-import { query } from "./_generated/server";
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {

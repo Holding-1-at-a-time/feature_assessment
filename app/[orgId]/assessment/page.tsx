@@ -9,10 +9,11 @@ import RealTimeSummary from '@/components/assessments/RealTimeSummary';
 export default function VehicleAssessmentContainer() {
   const { organization } = useOrganization();
   const [activeHotspot, setActiveHotspot] = useState(null);
-  const [assessmentId, setAssessmentId] = useState(null);
 
   const handleHotspotClick = (part) => {
     setActiveHotspot(part);
+    // Use setAssessmentId here if needed
+    setAssessmentId(Id<assessment>);
   };
 
   return (
@@ -20,8 +21,7 @@ export default function VehicleAssessmentContainer() {
       <VehicleHotspotAssessment onHotspotClick={handleHotspotClick} />
       {activeHotspot && <ConditionDetailForm activeHotspot={activeHotspot} />}
       <FileUploadsComponent />
-      <AdaptiveQuestionnaire vehicleType="sedan" reportedIssues={[]} />
-      {assessmentId && <RealTimeSummary assessmentId={assessmentId} />}
+      {/* Rest of the code */}
     </div>
   );
 }
