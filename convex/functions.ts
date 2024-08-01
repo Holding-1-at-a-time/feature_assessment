@@ -1,6 +1,64 @@
 import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
+import { query, mutation, action } from "./_generated/server";
 
+export const getServiceList = query({
+  handler: async (ctx) => {
+    return await ctx.db.query("services").collect();
+  },
+});
+
+export const calculateEstimate = action({
+  args: {
+    vehicleDetails: v.object({
+      make: v.string(),
+      model: v.string(),
+      year: v.number(),
+      condition: v.string(),
+    }),
+    selectedServices: v.array(v.id("services")),
+    customizations: v.array(v.id("customizations")),
+  },
+  handler: async (ctx, args) => {
+    // Implement pricing logic here
+    const { vehicleDetails, selectedServices, customizations } = args;
+    // Fetch additional data and calculate estimate
+    // Return the calculated estimate
+  },
+});
+
+export const getVehicleFactors = query({
+  handler: async (ctx) => {
+    // Fetch and return vehicle factors
+  },
+});
+
+export const getIndustryAverages = query({
+  handler: async (ctx) => {
+    // Fetch and return industry averages
+  },
+});
+
+export const saveEstimate = mutation({
+  args: {
+    estimate: v.object({
+      vehicleDetails: v.object(),
+      selectedServices: v.array(v.id("services")),
+      customizations: v.array(v.id("customizations")),
+      totalPrice: v.number(),
+    }),
+  },
+  handler: async (ctx, args) => {
+    const { estimate } = args;
+    await ctx.db.insert("estimates", estimate);
+  },
+});
+
+export const getCustomizationOptions = query({
+  handler: async (ctx) => {
+    return await ctx.db.query("customizations").collect();
+  },
+});
 // Fetch available services and prices
 export const getServiceList = query({
   args: {},
