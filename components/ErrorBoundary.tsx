@@ -1,5 +1,6 @@
 import React from 'react';
 import { ToastProvider, ToastViewport } from '@/components/ui/toast';
+import { ClerkProvider, useUser } from '@clerk/clerk-react';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -18,14 +19,16 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <ToastProvider>
-          <div>Something went wrong.</div>
-          <ToastViewport />
-        </ToastProvider>
+        <ClerkProvider>
+          <ToastProvider>
+            <div>Something went wrong.</div>
+            <ToastViewport />
+          </ToastProvider>
+        </ClerkProvider>
       );
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
