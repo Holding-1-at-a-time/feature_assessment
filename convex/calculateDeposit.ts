@@ -1,5 +1,6 @@
 import { query } from "./_generated/server";
 import { v } from "convex/values";
+import { getOrganizationContext } from 'clerk';
 
 export const calculateDeposit = query({
   args: {
@@ -11,11 +12,14 @@ export const calculateDeposit = query({
   },
   handler: async (ctx, args) => {
     const { services, customerPreferences } = args;
+    const organization = getOrganizationContext(ctx);
     let totalDeposit = 0;
 
     for (const service of services) {
       const serviceDetails = await ctx.db.get(service.id);
-      totalDeposit += serviceDetails.price * service.quantity;
+      const orgPricing = await ctx.db.query('pricingPolicies').filter({ organizationId: organization.id }).first();
+      const price = orgPricing ? orgPricing.price : serviceDetails.price;
+      totalDeposit += price * service.quantity;
     }
 
     // Additional logic based on customerPreferences can be added here

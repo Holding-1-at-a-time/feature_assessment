@@ -6,6 +6,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2020-08-27',
 });
 
+const limiter = rateLimit({
+    interval: 60 * 1000, // 1 minute
+    uniqueTokenPerInterval: 500, // Max 500 users per minute
+  });
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { services, customerPreferences } = req.body;
