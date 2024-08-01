@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
     "convex": "^1.13.2",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-a7d1240c-20240731",
