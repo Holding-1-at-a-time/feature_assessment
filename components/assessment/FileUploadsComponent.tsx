@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from 'convex/react';
+import { toast } from '@/components/ui/use-toast';
 import { api } from '../../convex/_generated/api';
 import { useFormContext } from 'react-hook-form';
 import { Button, Label, Progress } from '@/components/ui';
@@ -14,31 +15,39 @@ const FileUploadsComponent = () => {
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleFileUpload = async (event) => {
-    const files = Array.from(event.target.files);
-    const validFiles = files.filter(file => 
-      ALLOWED_IMAGE_TYPES.includes(file.type) || ALLOWED_VIDEO_TYPES.includes(file.type)
-    );
+    try {
+      const files = Array.from(event.target.files);
+      const validFiles = files.filter(file => 
+        ALLOWED_IMAGE_TYPES.includes(file.type) || ALLOWED_VIDEO_TYPES.includes(file.type)
+      );
 
-    if (validFiles.length > 0) {
-      // Upload files to Cloudinary and get URLs
-      const uploadedFiles = await Promise.all(validFiles.map(async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', 'your_upload_preset');
-        const response = await fetch('https://api.cloudinary.com/v1_1/your_cloud_name/upload', {
-          method: 'POST',
-          body: formData,
-        });
-        const data = await response.json();
-        return { url: data.secure_url, type: file.type };
-      }));
+      if (validFiles.length > 0) {
+        // Upload files to Cloudinary and get URLs
+        const uploadedFiles = await Promise.all(validFiles.map(async (file) => {
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('upload_preset', 'your_upload_preset');
+          const response = await fetch('https://api.cloudinary.com/v1_1/your_cloud_name/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await response.json();
+          return { url: data.secure_url, type: file.type };
+        }));
 
-      // Store file metadata
-      await uploadPhotoMetadata({ files: uploadedFiles });
+        // Store file metadata
+        await uploadPhotoMetadata({ files: uploadedFiles });
 
-      // Update form context
-      setValue('images', uploadedFiles.filter(file => ALLOWED_IMAGE_TYPES.includes(file.type)));
-      setValue('videos', uploadedFiles.filter(file => ALLOWED_VIDEO_TYPES.includes(file.type)));
+        // Update form context
+        setValue('images', uploadedFiles.filter(file => ALLOWED_IMAGE_TYPES.includes(file.type)));
+        setValue('videos', uploadedFiles.filter(file => ALLOWED_VIDEO_TYPES.includes(file.type)));
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to upload files. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
