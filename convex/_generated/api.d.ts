@@ -16,6 +16,7 @@ import type {
 } from "convex/server";
 import type * as appointments from "../appointments.js";
 import type * as assessmentQuestions from "../assessmentQuestions.js";
+import type * as bookings from "../bookings.js";
 import type * as calculateDeposit from "../calculateDeposit.js";
 import type * as createBooking from "../createBooking.js";
 import type * as estimateServiceDuration from "../estimateServiceDuration.js";
@@ -28,6 +29,7 @@ import type * as organizationContext from "../organizationContext.js";
 import type * as parts from "../parts.js";
 import type * as payment from "../payment.js";
 import type * as scheduleReminders from "../scheduleReminders.js";
+import type * as services from "../services.js";
 import type * as stripe from "../stripe.js";
 import type * as userEngagement from "../userEngagement.js";
 
@@ -42,6 +44,7 @@ import type * as userEngagement from "../userEngagement.js";
 declare const fullApi: ApiFromModules<{
   appointments: typeof appointments;
   assessmentQuestions: typeof assessmentQuestions;
+  bookings: typeof bookings;
   calculateDeposit: typeof calculateDeposit;
   createBooking: typeof createBooking;
   estimateServiceDuration: typeof estimateServiceDuration;
@@ -54,6 +57,7 @@ declare const fullApi: ApiFromModules<{
   parts: typeof parts;
   payment: typeof payment;
   scheduleReminders: typeof scheduleReminders;
+  services: typeof services;
   stripe: typeof stripe;
   userEngagement: typeof userEngagement;
 }>;
